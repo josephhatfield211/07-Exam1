@@ -2,8 +2,8 @@
 Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Joey Hatfield.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -103,6 +103,20 @@ def problem3(point, length, delta, window):
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
+    linevert = rg.Line(point, rg.Point(point.x,point.y+length))
+    linevert.thickness = 3
+    linevert.attach_to(window)
+    for k in range(int(length/delta)+1):
+        line = rg.Line(rg.Point(point.x, point.y+delta*k), rg.Point(point.x+length+20*k, point.y+delta*k))
+        if (k+3)%3 == 1:
+            line.color = 'cyan'
+        elif (k+3)%3 == 2:
+            line.color = 'spring green'
+        else:
+            line.color = 'magenta'
+        line.thickness = 3
+        line.attach_to(window)
+    window.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
