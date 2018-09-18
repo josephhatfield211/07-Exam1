@@ -93,7 +93,15 @@ def problem1a(rectangle, square, thickness, window):
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
-
+    rectangle.attach_to(window)
+    square.attach_to(window)
+    linestart = rg.Point(square.center.x,square.center.y)
+    lineend = rg.Point(rectangle.get_upper_left_corner().x+((rectangle.get_upper_right_corner().x-rectangle.get_upper_left_corner().x)/2),rectangle.get_upper_left_corner().y)
+    line = rg.Line(linestart,lineend)
+    line.thickness = thickness
+    line.color = rectangle.outline_color
+    line.attach_to(window)
+    window.render()
 def run_test_problem1b():
     """ Tests the  problem1b   function. """
     print()
@@ -137,7 +145,7 @@ def problem1b(point, win, width, height, color):
       Draws an rg.Ellipse for which:
         -- The topmost point of the rg.Ellipse is the given rg.Point.
         -- The width of the rg.Ellipse is the given width.
-        -- The height of the rg.Ellipse is the given width.
+        -- The height of the rg.Ellipse is the given height.
         -- The fill color of the rg.Ellipse is the given color.
       Must render but   ** NOT close **   the window.
 
@@ -149,10 +157,16 @@ def problem1b(point, win, width, height, color):
       :type color:  str
     """
     # --------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # done: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
+    top_left = rg.Point(point.x-(width/2),point.y)
+    bottom_right = rg.Point(point.x+(width/2),point.y+height)
+    ellipse = rg.Ellipse(top_left,bottom_right)
+    ellipse.fill_color = color
+    ellipse.attach_to(win)
+    win.render()
 
 # ------------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
