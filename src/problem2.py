@@ -20,7 +20,7 @@ def main():
 def problem2a_testing():
     """ Tests the   sum_of_digits_of_sum_of_factors   function. """
     ############################################################################
-    #  TODO: 2. Implement this TEST function.  See the IMPORTANT NOTE below.
+    #  done: 2. Implement this TEST function.  See the IMPORTANT NOTE below.
     #     This problem TESTS the    sum_of_digits_of_sum_of_factors    function
     #     that is defined below.  Include at least **   4   ** tests.
     #     Use the usual format:
@@ -31,9 +31,9 @@ def problem2a_testing():
     #       print('Expected:', expected)
     #       print('Actual:  ', actual)
     #
-    #  TODO (continued): IMPORTANT NOTE:
-    #  TODO (continued):   The function that you are TESTING is PURPOSELY
-    #  TODO (continued)    NOT implemented.  Do NOT implement it.  That is,
+    #  done (continued): IMPORTANT NOTE:
+    #  done (continued):   The function that you are TESTING is PURPOSELY
+    #  done (continued)    NOT implemented.  Do NOT implement it.  That is,
     #                   do NOT implement the
     #                           sum_of_digits_of_sum_of_factors
     #                   function!  Just write these TESTS of that function
@@ -45,6 +45,33 @@ def problem2a_testing():
     print('Testing the   sum_of_digits_of_sum_of_factors   function:')
     print('---------------------------------------------------------')
 
+    format_string = '   problem2a'
+    test_results = [0,0]
+    #Tests 1 through 4 of problem2a
+
+    #Test 1
+    expected = 4
+    print_expected_result_of_test([25], expected, test_results, format_string)
+    actual = sum_of_digits_of_sum_of_factors(25)
+    print_actual_result_of_test(expected, actual, test_results)
+
+    # Test 2
+    expected = 9
+    print_expected_result_of_test([10], expected, test_results, format_string)
+    actual = sum_of_digits_of_sum_of_factors(10)
+    print_actual_result_of_test(expected, actual, test_results)
+
+    # Test 3
+    expected = 10
+    print_expected_result_of_test([24], expected, test_results, format_string)
+    actual = sum_of_digits_of_sum_of_factors(24)
+    print_actual_result_of_test(expected, actual, test_results)
+
+    # Test 4
+    expected = 6
+    print_expected_result_of_test([14], expected, test_results, format_string)
+    actual = sum_of_digits_of_sum_of_factors(14)
+    print_actual_result_of_test(expected, actual, test_results)
 
 def sum_of_digits_of_sum_of_factors(n):
     """
@@ -63,19 +90,19 @@ def sum_of_digits_of_sum_of_factors(n):
        *** ASK FOR AN EXPLANATION IF YOU DO NOT UNDERSTAND THE ABOVE. ***
     """
     ############################################################################
-    #  TODO (continued):  This function is PURPOSELY ** not implemented. **
-    #  TODO (continued):  DO NOT IMPLEMENT  sum_of_digits_of_sum_of_factors.
+    #  done (continued):  This function is PURPOSELY ** not implemented. **
+    #  done (continued):  DO NOT IMPLEMENT  sum_of_digits_of_sum_of_factors.
     #                     Just leave it as it is (with no code).
     ############################################################################
 
 
 ################################################################################
-# TODO: 3.  READ the green doc-string for the   number_of_factors   function
+# done: 3.  READ the green doc-string for the   number_of_factors   function
 #    defined below.  You do NOT need to understand its implementation,
 #    just its specification (per the doc-string).
 #    You should  ** CALL **  that function as needed in implementing
 #    the other functions.
-# TODO (continued):  After you have READ this _TODO_, change its _TODO_ to DONE.
+# done (continued):  After you have READ this _TODO_, change its _TODO_ to DONE.
 ################################################################################
 
 def number_of_factors(n):
@@ -102,8 +129,8 @@ def number_of_factors(n):
 
     return count
     ############################################################################
-    #  TODO (continued):  Students: Do NOT touch the above   number_of_factors
-    #  TODO (continued)   function; CALL it as appropriate in problem(s) below.
+    #  done (continued):  Students: Do NOT touch the above   number_of_factors
+    #  done (continued)   function; CALL it as appropriate in problem(s) below.
     ############################################################################
 
 
@@ -285,7 +312,7 @@ def run_test_problem2b():
 
 def problem2b(a, b, x):
     """
-    What comes in:  Positive integers a, b and x, with a <= b.
+    What comes in:  Positive integers a, b, and x, with a <= b.
     What goes out:
       -- Returns the sum of all the integers from a to b, inclusive,
            whose number of factors is greater than or equal to x.
@@ -306,18 +333,23 @@ def problem2b(a, b, x):
            - 24 has 8 factors (namely: 1, 2, 3, 4, 6, 8, 12, 24)
            - 25 has 3 factors (namely: 1, 5, 25)
          so the integers from 13 to 25, inclusive, whose number of factors
-         is great than or equal to 5 are: 16, 18, 20, and 24,
+         is greater than or equal to 5 are: 16, 18, 20, and 24,
          and the sum   16 + 18 + 20 + 24   is 78.
      """
     ############################################################################
-    # TODO: 4. Implement and test this function.  See the IMPORTANT NOTE below!
+    # done: 4. Implement and test this function.  See the IMPORTANT NOTE below!
     #          Tests have been written for you (above).
     ############################################################################
-    # TODO (continued): IMPORTANT NOTE:
-    # TODO (continued):   **  For full credit you must appropriately use
-    # TODO (continued):       (i.e., call) the   number_of_factors   function
+    # done (continued): IMPORTANT NOTE:
+    # done (continued):   **  For full credit you must appropriately use
+    # done (continued):       (i.e., call) the   number_of_factors   function
     #                         that is DEFINED ABOVE.
     ############################################################################
+    sum = 0
+    for k in range(b-a+1):
+        if number_of_factors(a+k) >= x:
+            sum = sum + (a+k)
+    return sum
 
 
 def run_test_problem2c():
@@ -433,15 +465,16 @@ def problem1c(m):
            and 11 + 13 + 17 + 19 = 60.
      """
     ############################################################################
-    # TODO: 4. Implement and test this function.  See the IMPORTANT NOTE below!
+    # done: 4. Implement and test this function.  See the IMPORTANT NOTE below!
     #          Tests have been written for you (above).
     ############################################################################
-    # TODO (continued): IMPORTANT NOTE:
-    # TODO (continued):   This problem is 1 point (of 100) on the exam.
-    # TODO (continued)    Do not spend more than a few minutes on it.
-    # TODO (continued)    You get   NO credit   if your solution is more
-    # TODO (continued)    than 3 lines of code (and it can be done in 1 line).
+    # done (continued): IMPORTANT NOTE:
+    # done (continued):   This problem is 1 point (of 100) on the exam.
+    # done (continued)    Do not spend more than a few minutes on it.
+    # done (continued)    You get   NO credit   if your solution is more
+    # done (continued)    than 3 lines of code (and it can be done in 1 line).
     ############################################################################
+
 
 
 ################################################################################
